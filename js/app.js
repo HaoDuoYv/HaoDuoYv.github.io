@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initQuote();
   initSearch();
   initTheme();
-  initModal();
   initClock();
 });
 
@@ -97,25 +96,6 @@ function initTheme() {
   document.addEventListener('click', function(e) {
     if (!dropdown.contains(e.target)) {
       menu.classList.remove('show');
-    }
-  });
-}
-
-function initModal() {
-  var overlay = document.getElementById('modalOverlay');
-  var closeBtn = document.getElementById('modalClose');
-
-  closeBtn.addEventListener('click', closeDetail);
-
-  overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) {
-      closeDetail();
-    }
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeDetail();
     }
   });
 }

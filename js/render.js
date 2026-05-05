@@ -23,17 +23,14 @@ function renderCategories(data) {
 
     category.links.forEach(function(link) {
       var tag;
+      tag = document.createElement('a');
       if (link.detail) {
-        tag = document.createElement('button');
-        tag.addEventListener('click', function() {
-          openDetail(link.detail, link.url, link.name);
-        });
+        tag.href = link.detail;
       } else {
-        tag = document.createElement('a');
         tag.href = link.url;
-        tag.target = '_blank';
-        tag.rel = 'noopener noreferrer';
       }
+      tag.target = '_blank';
+      tag.rel = 'noopener noreferrer';
       tag.className = 'link-tag';
 
       var faviconUrl = '';
@@ -68,36 +65,6 @@ function renderCategories(data) {
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
-}
-
-function openDetail(detailPath, url, name) {
-  var overlay = document.getElementById('modalOverlay');
-  var body = document.getElementById('modalBody');
-  var btn = document.getElementById('modalBtn');
-
-  overlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  body.innerHTML = '<div class="loading">加载中...</div>';
-  btn.href = url;
-
-  fetch(detailPath)
-    .then(function(res) {
-      if (!res.ok) throw new Error('加载失败');
-      return res.arrayBuffer();
-    })
-    .then(function(buf) {
-      var md = new TextDecoder('utf-8').decode(buf);
-      body.innerHTML = marked.parse(md);
-    })
-    .catch(function() {
-      body.innerHTML = '<p style="color:var(--text-secondary)">详细说明加载失败，请直接访问资源。</p>';
-    });
-}
-
-function closeDetail() {
-  var overlay = document.getElementById('modalOverlay');
-  overlay.classList.remove('active');
-  document.body.style.overflow = '';
 }
 
 function escapeHtml(str) {
