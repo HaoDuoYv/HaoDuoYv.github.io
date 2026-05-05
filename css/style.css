@@ -282,6 +282,15 @@ body {
 .badge-hot { background: #f8d7da; color: #721c24; }
 .link-tag:hover .badge-new,
 .link-tag:hover .badge-hot { background: rgba(255,255,255,0.2); color: #fff; }
+.link-favicon {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.link-text {
+  white-space: nowrap;
+}
 
 /* ===== Footer ===== */
 .footer {

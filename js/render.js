@@ -36,7 +36,21 @@ function renderCategories(data) {
       }
       tag.className = 'link-tag';
 
-      var html = escapeHtml(link.name);
+      var faviconUrl = '';
+      if (link.favicon) {
+        faviconUrl = link.favicon;
+      } else if (link.url && link.url !== '#') {
+        try {
+          var host = new URL(link.url).hostname;
+          faviconUrl = 'https://www.google.com/s2/favicons?domain=' + host + '&sz=32';
+        } catch (e) {}
+      }
+
+      var html = '';
+      if (faviconUrl) {
+        html += '<img class="link-favicon" src="' + faviconUrl + '" alt="" loading="lazy" width="18" height="18">';
+      }
+      html += '<span class="link-text">' + escapeHtml(link.name) + '</span>';
       if (link.badge) {
         html += ' <span class="badge badge-' + escapeHtml(link.badge) + '">' + escapeHtml(link.badge) + '</span>';
       }

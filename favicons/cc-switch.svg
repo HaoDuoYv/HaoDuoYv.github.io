@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="CC Switch">
+  <g transform="translate(128 128)">
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#EE8A3C"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#5FA7C6" transform="rotate(30)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#EE8A3C" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#5FA7C6" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#EE8A3C" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#5FA7C6" transform="rotate(150)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#EE8A3C" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#5FA7C6" transform="rotate(210)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#EE8A3C" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#5FA7C6" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#EE8A3C" transform="rotate(300)"/>
+    <ellipse cx="0" cy="-56" rx="14" ry="38" fill="#5FA7C6" transform="rotate(330)"/>
+    <circle cx="0" cy="0" r="12" fill="#7AB2CB"/>
+  </g>
+</svg>

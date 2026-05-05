@@ -1,0 +1,22 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Codex">
+  <defs>
+    <radialGradient id="blobA" cx="32%" cy="38%" r="72%">
+      <stop offset="0%" stop-color="#B4A8FF"/>
+      <stop offset="55%" stop-color="#7B70F6"/>
+      <stop offset="100%" stop-color="#4F5DE6"/>
+    </radialGradient>
+    <radialGradient id="blobB" cx="68%" cy="62%" r="72%">
+      <stop offset="0%" stop-color="#9CB8FF"/>
+      <stop offset="60%" stop-color="#5C84F0"/>
+      <stop offset="100%" stop-color="#3B63DE"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(128 132)">
+    <ellipse cx="-18" cy="4" rx="56" ry="43" fill="url(#blobA)" transform="rotate(-14)"/>
+    <ellipse cx="30" cy="-6" rx="58" ry="44" fill="url(#blobB)" transform="rotate(13)"/>
+    <ellipse cx="0" cy="8" rx="76" ry="50" fill="#5A6BEE" opacity="0.35"/>
+    <circle cx="-36" cy="10" r="8" fill="#FFFFFF"/>
+    <circle cx="-6" cy="10" r="8" fill="#FFFFFF"/>
+    <path d="M20 6h34" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>
