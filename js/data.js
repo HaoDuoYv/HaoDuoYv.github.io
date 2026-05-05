@@ -48,7 +48,7 @@ const NAV_DATA = [
     name: "个人工具",
     icon: "lightbulb",
     links: [
-      { name: "Skills & MCP 推荐", url: "#", desc: "个人 Skills 和 MCP 服务器推荐", detail: "https://file.uhsea.com/2605/6742d22837d96b180125bf4396475af8N8.zip" }
+      { name: "Skills & MCP 推荐", url: "#", desc: "个人 Skills 和 MCP 服务器推荐", detail: "details/skills-mcp.md" }
     ]
   }
 ];
