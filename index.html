@@ -17,7 +17,14 @@
         <i data-lucide="search" class="search-icon-svg"></i>
         <input type="text" id="searchInput" placeholder="搜索资源...">
       </div>
-      <button class="theme-btn" id="themeBtn" title="切换暗色模式"><i data-lucide="moon" id="themeIcon"></i></button>
+      <div class="theme-dropdown" id="themeDropdown">
+        <button class="theme-btn" id="themeBtn" title="切换主题"><i data-lucide="sun" id="themeIcon"></i></button>
+        <div class="theme-menu" id="themeMenu">
+          <button class="theme-option" data-theme="light" title="浅色模式"><i data-lucide="sun"></i></button>
+          <button class="theme-option" data-theme="dark" title="深色模式"><i data-lucide="moon"></i></button>
+          <button class="theme-option" data-theme="system" title="跟随系统"><i data-lucide="monitor"></i></button>
+        </div>
+      </div>
       <div class="clock" id="clock"></div>
     </div>
   </header>

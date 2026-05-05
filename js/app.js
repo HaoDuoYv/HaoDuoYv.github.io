@@ -35,34 +35,70 @@ function initSearch() {
 }
 
 function initTheme() {
+  var dropdown = document.getElementById('themeDropdown');
   var btn = document.getElementById('themeBtn');
-  if (!btn) return;
+  var menu = document.getElementById('themeMenu');
+  if (!dropdown || !btn || !menu) return;
 
-  var saved = localStorage.getItem('theme');
-  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  var isDark = saved ? saved === 'dark' : prefersDark;
+  var saved = localStorage.getItem('theme') || 'system';
 
-  applyTheme(isDark);
+  function applyTheme(mode) {
+    var isDark;
+    if (mode === 'system') {
+      isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } else {
+      isDark = mode === 'dark';
+    }
 
-  btn.addEventListener('click', function() {
-    isDark = !isDark;
-    applyTheme(isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+
+    var icon = document.getElementById('themeIcon');
+    if (icon) {
+      var iconMap = { light: 'sun', dark: 'moon', system: 'monitor' };
+      icon.setAttribute('data-lucide', iconMap[mode] || 'monitor');
+    }
+
+    menu.querySelectorAll('.theme-option').forEach(function(opt) {
+      opt.classList.toggle('active', opt.getAttribute('data-theme') === mode);
+    });
+
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+
+  applyTheme(saved);
+
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  mq.addEventListener('change', function() {
+    if ((localStorage.getItem('theme') || 'system') === 'system') {
+      applyTheme('system');
+    }
   });
-}
 
-function applyTheme(isDark) {
-  var icon = document.getElementById('themeIcon');
-  if (isDark) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    if (icon) icon.setAttribute('data-lucide', 'sun');
-  } else {
-    document.documentElement.removeAttribute('data-theme');
-    if (icon) icon.setAttribute('data-lucide', 'moon');
-  }
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    menu.classList.toggle('show');
+  });
+
+  menu.addEventListener('click', function(e) {
+    var option = e.target.closest('.theme-option');
+    if (!option) return;
+    var mode = option.getAttribute('data-theme');
+    localStorage.setItem('theme', mode);
+    applyTheme(mode);
+    menu.classList.remove('show');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!dropdown.contains(e.target)) {
+      menu.classList.remove('show');
+    }
+  });
 }
 
 function initModal() {

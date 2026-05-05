@@ -113,21 +113,70 @@ body {
   height: 20px;
   flex-shrink: 0;
 }
-.theme-btn {
-  background: var(--accent-light);
-  border: 1px solid var(--accent);
-  border-radius: 8px;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 18px;
-  color: var(--accent);
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+/* ===== Theme Dropdown ===== */
+.theme-dropdown {
+  position: relative;
   flex-shrink: 0;
 }
+.theme-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background 0.2s, color 0.2s;
+}
 .theme-btn:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  background: var(--bg);
+  color: var(--text);
+}
+.theme-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: -4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  padding: 6px;
+  z-index: 110;
+  flex-direction: row;
+  gap: 4px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.theme-menu.show {
+  display: flex;
+}
+.theme-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background 0.15s, color 0.15s;
+}
+.theme-option:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+.theme-option i {
+  width: 18px;
+  height: 18px;
+}
+.theme-option.active {
+  background: var(--accent-light);
+  color: var(--accent);
 }
 .clock {
   font-size: 14px;
@@ -360,7 +409,7 @@ body {
     order: 3;
     flex-basis: 100%;
   }
-  .theme-btn { margin-left: auto; }
+  .theme-dropdown { margin-left: auto; }
   .main { padding: 16px; }
   .link-tag {
     padding: 10px 14px;
@@ -374,6 +423,7 @@ body {
 /* ===== Focus States ===== */
 .link-tag:focus-visible,
 .theme-btn:focus-visible,
+.theme-option:focus-visible,
 .modal-close:focus-visible,
 .modal-btn:focus-visible {
   outline: 2px solid var(--accent);
