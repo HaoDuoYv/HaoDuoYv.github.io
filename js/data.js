@@ -19,7 +19,7 @@ const NAV_DATA = [
     icon: "graduation-cap",
     links: [
       { name: "Docker 文档", url: "https://docs.docker.com/manuals/", desc: "Docker 官方文档", favicon: "favicons/docker.svg" },
-
+      { name: "JDK 文档", url: "https://file.uhsea.com/2605/1bc52f0e1061e59638cd6ce2da0d3b94O6.chm", desc: "Java 开发工具包文档" }
     ]
   },
   {
