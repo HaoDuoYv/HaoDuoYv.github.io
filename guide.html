@@ -1,40 +1,103 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教程 - 资源导航</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/guide.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>资源详情 - 资源导航</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/guide.css">
 </head>
 <body>
-<header class="guide-header">
-<div class="guide-header-inner">
-<select class="toc-select" id="tocSelect" title="跳转到章节">
-<option value="">目录</option>
-</select>
-<a class="logo" href="index.html"><i data-lucide="bookmark" class="logo-icon"></i> 资源导航</a>
-<div class="guide-header-right">
-<div class="theme-dropdown" id="themeDropdown">
-<button class="theme-btn" id="themeBtn" title="切换主题"><i data-lucide="sun" id="themeIcon"></i></button>
-<div class="theme-menu" id="themeMenu">
-<button class="theme-option" data-theme="light" title="浅色模式"><i data-lucide="sun"></i></button>
-<button class="theme-option" data-theme="dark" title="深色模式"><i data-lucide="moon"></i></button>
-<button class="theme-option" data-theme="system" title="跟随系统"><i data-lucide="monitor"></i></button>
-</div></div>
-<a class="back-link" href="index.html"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> 返回首页</a>
-</div></div></header>
-<main class="guide-content">
-<div class="guide-loading" id="guideLoading">加载中...</div>
-<div class="guide-error" id="guideError" style="display:none">内容加载失败，请<a href="index.html">返回首页</a></div>
-<article class="guide-article" id="guideArticle"></article>
-<div class="guide-resource-btn" id="guideResourceBtn" style="display:none"><a id="guideResourceLink" href="#" target="_blank" rel="noopener noreferrer">前往资源 &rarr;</a></div>
-</main>
-<script src="https://unpkg.com/marked@12/marked.min.js"></script>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="js/data.js"></script>
-<script src="js/guide.js"></script>
-</body></html>
+  <header class="detail-header">
+    <div class="detail-header-inner">
+      <a class="logo" href="index.html">
+        <i data-lucide="compass" class="logo-icon"></i>
+        <span>资源导航</span>
+      </a>
+      <div class="detail-header-right">
+        <div class="theme-dropdown" id="themeDropdown">
+          <button class="theme-btn" id="themeBtn" title="切换主题"><i data-lucide="sun" id="themeIcon"></i></button>
+          <div class="theme-menu" id="themeMenu">
+            <button class="theme-option" data-theme="light" title="浅色模式"><i data-lucide="sun"></i></button>
+            <button class="theme-option" data-theme="dark" title="深色模式"><i data-lucide="moon"></i></button>
+            <button class="theme-option" data-theme="system" title="跟随系统"><i data-lucide="monitor"></i></button>
+          </div>
+        </div>
+        <a class="back-link" href="index.html"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> 返回首页</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="detail-main" id="detailMain">
+    <div class="detail-loading" id="detailLoading">
+      <div class="loading-spinner"></div>
+      <span>加载资源信息...</span>
+    </div>
+    <div class="detail-error" id="detailError" style="display:none">
+      <i data-lucide="alert-circle" style="width:48px;height:48px;margin-bottom:16px"></i>
+      <p>找不到该资源</p>
+      <a href="index.html">返回首页</a>
+    </div>
+
+    <div class="detail-content" id="detailContent" style="display:none">
+      <div class="detail-hero">
+        <div class="detail-hero-bg"></div>
+        <div class="detail-hero-inner">
+          <div class="detail-icon-large">
+            <img id="detailIcon" src="" alt="">
+          </div>
+          <div class="detail-hero-info">
+            <h1 class="detail-hero-title" id="detailTitle"></h1>
+            <p class="detail-hero-desc" id="detailDesc"></p>
+            <div class="detail-hero-meta" id="detailMeta"></div>
+          </div>
+          <div class="detail-hero-actions">
+            <a class="btn-download" id="detailDownload" href="" target="_blank">
+              <i data-lucide="download"></i>
+              <span>立即下载</span>
+            </a>
+            <a class="btn-visit" id="detailVisit" href="" target="_blank">
+              <i data-lucide="external-link"></i>
+              <span>访问主页</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-intro-section" id="detailIntroSection">
+        <div class="section-card">
+          <div class="section-header">
+            <i data-lucide="file-text"></i>
+            <h2>资源介绍</h2>
+          </div>
+          <p class="section-text" id="detailIntro"></p>
+        </div>
+      </div>
+
+      <div class="detail-skills-section" id="detailSkillsSection"></div>
+
+      <div class="detail-info-section" id="detailInfoSection">
+        <div class="section-card">
+          <div class="section-header">
+            <i data-lucide="info"></i>
+            <h2>资源信息</h2>
+          </div>
+          <div class="info-grid" id="detailInfo"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="detail-footer">
+    <div class="footer-line"></div>
+    <p>&copy; 2024 资源导航</p>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/guide.js"></script>
+</body>
+</html>
